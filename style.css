@@ -1,0 +1,170 @@
+/* === CSS 自定义属性 (野兽派主题) === */
+:root {
+  --color-bg: #ffffff;
+  --color-fg: #000000;
+  --color-accent: #e63946;
+  --border-width: 3px;
+  --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --transition-speed: 250ms;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.nav-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: var(--border-width) solid var(--color-fg);
+  backdrop-filter: blur(4px);
+}
+.nav-container {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; justify-content: center; gap: 0;
+}
+.nav-link {
+  background: none; border: none; border-right: var(--border-width) solid var(--color-fg);
+  padding: 1.2rem 2.5rem; font-size: 1rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 2px; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  transition: background var(--transition-speed), color var(--transition-speed);
+}
+.nav-icon, .section-icon, .share-icon, .social-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 1rem; height: 1rem; flex-shrink: 0;
+}
+.nav-icon svg, .section-icon svg, .share-icon svg, .social-icon svg {
+  width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 2;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.nav-link:last-child { border-right: none; }
+.nav-link:hover { background: var(--color-fg); color: var(--color-bg); }
+.nav-link.active { background: var(--color-fg); color: var(--color-bg); }
+
+.page-container { padding-top: 80px; min-height: 100vh; }
+.page {
+  display: none; opacity: 0; transform: translateY(10px);
+  transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
+  max-width: 1200px; margin: 0 auto; padding: 3rem 2rem;
+}
+.page.active { display: block; }
+.page.visible { opacity: 1; transform: translateY(0); }
+
+.home-hero { display: flex; align-items: center; justify-content: space-between; gap: 3rem; margin-bottom: 4rem; border-bottom: var(--border-width) dashed var(--color-fg); padding-bottom: 3rem; }
+.avatar-wrapper {
+  width: 150px; height: 150px; border: var(--border-width) dotted var(--color-fg);
+  margin-left: auto;
+  flex-shrink: 0; overflow: hidden; background: #eee;
+}
+.avatar-wrapper img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.avatar-fallback { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.2rem; background: var(--color-fg); color: var(--color-bg); }
+
+.greeting { display: flex; flex-direction: column; flex: 1; }
+.greeting-cn { font-size: 3.5rem; font-weight: 900; line-height: 1; letter-spacing: -1px; }
+.greeting-en { font-size: 1.5rem; font-weight: 400; margin-top: 0.5rem; opacity: 0.7; }
+
+.timeline-section { margin-top: 3rem; }
+.section-title { font-size: 1.2rem; font-weight: 900; margin-bottom: 1.5rem; letter-spacing: 1px; display: flex; align-items: center; gap: 0.7rem; }
+.timeline-wrapper { display: flex; align-items: center; gap: 1rem; position: relative; }
+.timeline-track {
+  display: flex; gap: 1.5rem; overflow-x: auto; scroll-behavior: smooth;
+  padding: 1rem 0.5rem; flex: 1; cursor: grab;
+  scrollbar-width: none; -ms-overflow-style: none;
+}
+.timeline-track::-webkit-scrollbar { display: none; }
+.timeline-track.dragging { cursor: grabbing; scroll-behavior: auto; }
+
+.timeline-node {
+  flex: 0 0 280px; border: var(--border-width) dashed var(--color-fg);
+  padding: 1.5rem; background: var(--color-bg);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  user-select: none;
+}
+.timeline-node.active-node {
+  transform: scale(1.05);
+  box-shadow: 8px 8px 0px var(--color-fg);
+  background: var(--color-fg); color: var(--color-bg);
+}
+.timeline-node h4 { font-size: 1.1rem; margin-bottom: 0.3rem; }
+.timeline-node .year { font-size: 0.9rem; font-weight: 800; margin-bottom: 0.5rem; opacity: 0.8; }
+.timeline-node p { font-size: 0.85rem; line-height: 1.4; }
+
+.timeline-btn {
+  width: 40px; height: 40px; border: var(--border-width) solid var(--color-fg);
+  background: var(--color-bg); font-size: 1.2rem; font-weight: 900;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background var(--transition-speed), color var(--transition-speed);
+  flex-shrink: 0;
+}
+.timeline-btn:hover { background: var(--color-fg); color: var(--color-bg); }
+
+.page-title { font-size: 4rem; font-weight: 900; margin-bottom: 3rem; border-bottom: var(--border-width) solid var(--color-fg); display: inline-block; padding-right: 2rem; }
+.share-stack { display: flex; flex-direction: column; gap: 2rem; }
+.share-group { border: var(--border-width) dotted var(--color-fg); padding: 1.5rem; background: var(--color-bg); }
+.share-group-title { font-size: 1rem; font-weight: 900; letter-spacing: 2px; margin-bottom: 1rem; text-transform: uppercase; display: flex; align-items: center; gap: 0.6rem; }
+.share-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+.share-card { border: var(--border-width) dashed var(--color-fg); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; transition: transform var(--transition-speed); background: #fff; }
+.share-card:hover { transform: translate(-4px, -4px); box-shadow: 4px 4px 0px var(--color-fg); }
+.card-img { width: 100%; height: 180px; background: #eee; border: 2px dotted var(--color-fg); display: flex; align-items: center; justify-content: center; font-weight: 900; overflow: hidden; }
+.card-img img { width: 100%; height: 100%; object-fit: cover; }
+.share-card h3 { font-size: 1.3rem; font-weight: 900; }
+.share-card .meta { font-size: 0.9rem; font-weight: 700; opacity: 0.7; }
+.share-card .desc { font-size: 0.95rem; flex: 1; }
+.diary-group {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+.diary-group .share-group-title { grid-column: 1 / -1; margin-bottom: 0; }
+.diary-list { display: grid; gap: 1rem; }
+.diary-card { border: 2px dashed var(--color-fg); padding: 1rem 1.2rem; background: #f7f7f7; }
+.diary-date { font-size: 0.85rem; font-weight: 900; margin-bottom: 0.3rem; opacity: 0.7; }
+.diary-card h3 { font-size: 1.05rem; font-weight: 900; margin-bottom: 0.35rem; }
+.diary-card p { font-size: 0.95rem; line-height: 1.5; }
+
+.about-text { font-size: 1.5rem; font-weight: 700; line-height: 1.6; max-width: 800px; margin-bottom: 3rem; }
+.social-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+.social-link { position: relative; display: inline-flex; align-items: center; gap: 0.7rem; }
+.preview-layer {
+  position: fixed; z-index: 220; pointer-events: none; opacity: 0;
+  transform: translate(16px, 16px) scale(0.92);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+.preview-layer.visible { opacity: 1; transform: translate(16px, 16px) scale(1); }
+.preview-card {
+  width: 180px; border: var(--border-width) solid var(--color-fg);
+  background: var(--color-bg); padding: 0.7rem; box-shadow: 8px 8px 0px var(--color-fg);
+}
+.preview-image {
+  width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block;
+  border: 2px solid var(--color-fg); background: #f2f2f2;
+}
+.preview-caption {
+  margin-top: 0.6rem; font-size: 0.8rem; font-weight: 900; letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.brutal-link {
+  display: inline-block; padding: 0.8rem 1.5rem; border: var(--border-width) solid var(--color-fg);
+  text-decoration: none; color: var(--color-fg); font-weight: 900; font-size: 1rem;
+  transition: background var(--transition-speed), color var(--transition-speed);
+}
+.brutal-link:hover { background: var(--color-fg); color: var(--color-bg); }
+
+@media (max-width: 768px) {
+  .nav-link { padding: 1rem 1.5rem; font-size: 0.85rem; letter-spacing: 1px; }
+  .home-hero { flex-direction: column; text-align: center; gap: 2rem; }
+  .greeting-cn { font-size: 2.5rem; }
+  .greeting-en { font-size: 1.2rem; }
+  .timeline-node { flex: 0 0 240px; }
+  .page-title { font-size: 2.5rem; }
+  .share-group { padding: 1rem; }
+  .about-text { font-size: 1.2rem; }
+}
