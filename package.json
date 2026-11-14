@@ -1,0 +1,27 @@
+{
+  "name": "true-website",
+  "version": "1.0.0",
+  "description": "'''html <p> llallll </p> ''' - xiaoxixi - bukaixin - haibucuo",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mtzjqq-commits/learn_and_exercise.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mtzjqq-commits/learn_and_exercise/issues"
+  },
+  "homepage": "https://github.com/mtzjqq-commits/learn_and_exercise#readme",
+  "devDependencies": {
+    "vite": "^8.3.8"
+  }
+}
